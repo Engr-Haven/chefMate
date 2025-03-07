@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChefMate: Find recipes. Cook smarter.</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <div class="general-container" id="general-container">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="#"><img src="./recipeElements/chefMate.png" alt="ChefMate Logo"></a>
+            </div>
+            <div class="menu-container">
+                <h3><a href="#">Blog</a></h3>
+                <h3><a href="#">About us</a></h3>
+                <h3><a href="#">Contact us</a></h3>
+            </div>
+            <div class="sign-up-login-section">
+                <h3><a href="#">Log in</a></h3>
+                <button>Sign up</button>
+            </div>
+        </div>
+
+        <div class="hero-container-section">
+            <div class="left-hand-side-container">
+                <div class="headline-container">
+                    <h1>Your Smart <span class="special-case">Kitchen</span> Companion</h1>
+                </div>
+                <form id="form-field">
+                    <label for="meal-recipe">Enter your Meal and get Recipe:</label>
+                    <input type="text" name="meal-recipe" id="meal-recipe" placeholder="e.g Fish stew, Rice, Chicken...">
+                    <h3 class="error-msg" id="error-msg">***Recipe not found, enter correctly!</h3>
+                    <button type="submit">Get Recipe</button>
+                </form>
+            </div>
+            <div class="right-hand-side-container">
+                <div class="first-img-container">
+                    <img src="./recipeElements/foodie.jpg" alt="Food sauce">
+                    <!-- <img src="./recipeElements/foody.jpg" alt="Another sauce"> -->
+                </div>
+                <div class="second-img-container">
+                    <img src="./recipeElements/hotFood.jpg" alt="Hot sauce">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-recipe-cont" id="container-recipe-cont">
+            <!-- An img goes here with class="meal-image" check script.js to see more...-->
+            <!-- <div class="recipe-result-container">
+                <h2><a href="#" id="result-recipe">odgjsjffkjkfkj</a></h2>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Modal overlay results with it's bg structure-->
+    <div class="sec-modal-overlay-results" id="sec-modal-overlay-results">
+        <div class="results-modal-container">
+            <div class="close-modal-container">
+                <i class="fa-solid fa-circle-xmark" id="close-icon"></i>
+            </div>
+            <div class="recipe-details-explained">
+                <div class="meal-name" id="meal-name">
+                    <!-- <h1>Meal:</h1>
+                    <h2 id="meal-text"></h2> -->
+                </div>
+                <div class="ingredients-measurement-container" id="ingredients-measurement-container">
+                    <!-- <h1>Ingredient Measurement:</h1> -->
+                    <!-- <h3>300g of Sushi Rice</h3> -->
+                </div>
+                <div class="instructions-container" id="instructions-container">
+                    <!-- <h1>Instructions:</h1> -->
+                    <!-- <h4>Rinsing and soaking your rice is key to achieving the perfect texture. Measure the rice into a bowl, cover with cold water, then use your fingers to massage the grains of rice – the water will become cloudy. Drain and rinse again with fresh water. Repeat five more times until the water stays clear.</h4> -->
+                </div>
+            </div>
+            <div class="okay-button">
+                <button id="ok-btn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

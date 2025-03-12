@@ -9,6 +9,9 @@ let ingredientsDiv = document.querySelector(`#ingredients-measurement-container`
 let instructionsDiv = document.querySelector(`#instructions-container`)
 let okBtn = document.querySelector(`#ok-btn`)
 let errorMessage = document.querySelector(`#error-msg`)
+let menuToggle = document.querySelector(`#menu-icon`)
+let mobileMenuModal = document.querySelector(`#menu-modal`)
+let menuToggleClosed = document.querySelector(`#close-menu-icon`)
 
 
 form.addEventListener(`submit`, function(e) {
@@ -37,6 +40,8 @@ inputData.addEventListener(`focus`, clearError)
 function clearError(){
     errorMessage.style.visibility = `hidden`
     inputData.removeAttribute(`readonly`)
+
+    clearAllMealData()
 }
 
 
@@ -181,3 +186,19 @@ function clearAllMealData(){
 
 modalOverlay.addEventListener(`click`, closeModalOverlay)
 
+
+// Mobile Menu Modal begins here >>>
+
+menuToggle.addEventListener(`click`, openMobileMenuModal)
+function openMobileMenuModal(){
+    mobileMenuModal.classList.remove(`menu-modal`)
+    mobileMenuModal.classList.add(`menu-modal-visible`)
+}
+
+menuToggleClosed.addEventListener(`click`, closedMobileMenu)
+function closedMobileMenu(){
+    if(mobileMenuModal.classList.contains(`menu-modal-visible`)){
+        mobileMenuModal.classList.remove(`menu-modal-visible`)
+        mobileMenuModal.classList.add(`menu-modal`)
+    }
+}

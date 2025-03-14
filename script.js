@@ -12,6 +12,7 @@ let errorMessage = document.querySelector(`#error-msg`)
 let menuToggle = document.querySelector(`#menu-icon`)
 let mobileMenuModal = document.querySelector(`#menu-modal`)
 let menuToggleClosed = document.querySelector(`#close-menu-icon`)
+let heroDiv = document.querySelector(`#hero-container-section`)
 
 
 form.addEventListener(`submit`, function(e) {
@@ -202,3 +203,6 @@ function closedMobileMenu(){
         mobileMenuModal.classList.add(`menu-modal`)
     }
 }
+
+// When the mobile menu modal is active, the user can click on the main page and the menu modal disappers
+heroDiv.addEventListener(`click`, closedMobileMenu)

@@ -15,9 +15,17 @@ let menuToggleClosed = document.querySelector(`#close-menu-icon`)
 let heroDiv = document.querySelector(`#hero-container-section`)
 
 
+window.onload = function(){
+    let randomFood = [`Chicken Fajita Mac and Cheese`, `Potato Gratin with Chicken`, `Potato Salad (Olivier Salad)`, `Bread and Butter Pudding`, `Portuguese fish stew (Caldeirada de peixe)`, `Fish Soup (Ukha)`]
+
+    let randomMealOutcome = randomFood[Math.floor(Math.random() * randomFood.length)]
+    fetchMealData(randomMealOutcome)
+}
+
 form.addEventListener(`submit`, function(e) {
     e.preventDefault()
-    fetchMealData()
+    const mealNameInput = inputData.value.trim()
+    fetchMealData(mealNameInput)
     // This enables the inputfield to be locked. It won't take in data and won't submit data either (Other one like it is readonly - this will not totally be locked.)...and it should be the last line of action
     inputData.setAttribute(`readonly`, ``)
 })
@@ -50,14 +58,13 @@ let ingredients = []
 let measurements = []
 
 
-async function fetchMealData(){
+async function fetchMealData(mealName){
 
-    if(inputData.value.trim() === ``){
+    if(!mealName || mealName.trim() === ``){
         errorMessage.style.visibility = `visible`
         return
     }
 
-    const mealName = inputData.value.trim()
     const apiURL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`
     try{
         let response = await fetch(apiURL)
@@ -65,6 +72,11 @@ async function fetchMealData(){
             throw new Error(`HTTP error! Status: ${response.status}`)
         }
         let data = await response.json()
+
+        if (!data.meals) {
+            errorMessage.style.visibility = `visible`
+            return
+        }
 
         let resultData = data.meals[0]
         let mealName = resultData.strMeal
@@ -88,6 +100,8 @@ async function fetchMealData(){
 
         let recipeResultContainer = document.createElement(`div`)
         recipeResultContainer.classList.add(`recipe-result-container`)
+
+        recipeResultContainer.append(mealImageElement)
 
         let h2Element = document.createElement(`h2`)
         let recipeResultElement = document.createElement(`a`)

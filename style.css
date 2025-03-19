@@ -734,7 +734,7 @@ form button:hover{
     .recipe-result-container{
         width: 100%;
         height: auto;
-        background-color: #338135;
+        background-color: whitesmoke;
         border-radius: 0.5rem;
         border: 1px solid white;
         padding: 0.7rem;
@@ -747,7 +747,7 @@ form button:hover{
     .recipe-result-container h2{
         font-size: 1.2rem;
         font-weight: 600;
-        color: whitesmoke;
+        color: #338135;
     }
     
     .recipe-result-container h2 a{
